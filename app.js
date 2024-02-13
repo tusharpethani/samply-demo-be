@@ -17,19 +17,13 @@ db.sequelize
         console.log('Database connection error:', e);
     });
 
-const allowedOrigins = [];
-
-// app.use(
-//     cors({
-//         origin: (origin, callback) => {
-//             if (!origin || allowedOrigins.includes(origin)) {
-//                 callback(null, true);
-//             } else {
-//                 callback(new Error('Not allowed by CORS'));
-//             }
-//         },
-//     })
-// );
+app.use(
+    cors({
+        origin: (origin, callback) => {
+            callback(null, true);
+        },
+    })
+);
 
 // parse requests of content-type - application/json
 app.use(express.json());
